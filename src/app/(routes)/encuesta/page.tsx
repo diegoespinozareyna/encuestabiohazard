@@ -46,7 +46,7 @@ const questions: Question[] = [
     {
         id: 2,
         type: "boolean",
-        question: "¿El técnico llegó uniformado y aseado correctamente?",
+        question: "¿El técnico llegó con el uniforme completo y en buena presentación personal?(Uso de casco, fotocheck, zapatos de seguridad, camisa, chaleco o indumentaria que represente la empresa)",
         required: true,
     },
     {
@@ -66,6 +66,18 @@ const questions: Question[] = [
         type: "boolean",
         question: "¿El técnico hizo una inspección previa antes de ejecutar el servicio?",
         required: true,
+    },
+    {
+        id: 6,
+        type: "boolean",
+        question: "¿El técnico le entregó una ficha técnica y/o certificado al finalizar el servicio?",
+        required: true,
+    },
+    {
+        id: 7,
+        type: "textarea",
+        question: "Deje usted algún comentario sobre cómo mejorar nuestro servicio",
+        required: false,
     },
 ]
 
@@ -116,6 +128,8 @@ export default function SurveyPage() {
             3: undefined,
             4: undefined,
             5: undefined,
+            6: undefined,
+            7: undefined,
         },
     })
 
@@ -188,6 +202,8 @@ export default function SurveyPage() {
             pregunta3: answers["3"],
             pregunta4: answers["4"],
             pregunta5: answers["5"],
+            pregunta6: answers["6"],
+            pregunta7: answers["7"],
             local: "biohazard",
         }
 
@@ -347,14 +363,14 @@ export default function SurveyPage() {
                                         placeholder="Escribe tu sugerencia aquí..."
                                         className="text-base p-4 min-h-[100px] resize-none"
                                     />
-                                    <div className="text-xs text-gray-500 space-y-1">
+                                    {/* <div className="text-xs text-gray-500 space-y-1">
                                         <p className="font-medium">Ejemplos:</p>
                                         <ul className="list-disc list-inside space-y-1 ml-4">
                                             <li>"Le faltó un poco de sal al caldito"</li>
                                             <li>"La pollada debería freírse un poco más"</li>
                                             <li>"No me trajeron la canchita cuando la pedí"</li>
                                         </ul>
-                                    </div>
+                                    </div> */}
                                 </div>
                             )}
                         </div>

@@ -102,6 +102,8 @@ export default function DashboardPage() {
                         3: item.pregunta3,
                         4: item.pregunta4,
                         5: item.pregunta5,
+                        6: item.pregunta6,
+                        7: item.pregunta7,
                     }
                 }));
                 setSurveyResponses(surveyResponsesAll)
@@ -122,10 +124,12 @@ export default function DashboardPage() {
 
     const questions = [
         "¿El técnico se presentó adecuadamente indicando su nombre?",
-        "¿El técnico llegó uniformado y aseado correctamente?",
+        "¿El técnico llegó con el uniforme completo y en buena presentación personal?(Uso de casco, fotocheck, zapatos de seguridad, camisa, chaleco o indumentaria que represente la empresa)",
         "¿El técnico llegó puntual a su servicio?",
         "¿El técnico le explicó sobre el servicio que realizará y el insumo que aplicará hoy en sus instalaciones?",
         "¿El técnico hizo una inspección previa antes de ejecutar el servicio?",
+        "¿El técnico le entregó una ficha técnica y/o certificado al finalizar el servicio?",
+        "Deje usted algún comentario sobre cómo mejorar nuestro servicio",
     ]
 
     const StarDisplay = ({ rating }: { rating: number }) => {
@@ -270,9 +274,9 @@ export default function DashboardPage() {
                                         >
                                             <td className="p-4 text-sm font-medium text-gray-900">{formatDate(response.timestamp)}</td>
                                             <td className="p-4 text-sm text-gray-600">{formatTime(response.timestamp)}</td>
-                                            {[1, 2, 3, 4, 5].map((respuesta: any, index: any) => (
+                                            {[1, 2, 3, 4, 5, 6, 7].map((respuesta: any, index: any) => (
                                                 <th key={index} className={`text-left p-4 font-semibold text-gray-700 min-w-[200px] ${response?.responses?.[respuesta] == "true" ? "text-green-500" : "text-red-500"}`}>
-                                                    <div className="text-sm leading-tight">{response?.responses?.[respuesta] == "true" ? "Sí" : "No"}</div>
+                                                    <div className="text-sm leading-tight">{response?.responses?.[respuesta] == "true" ? "Sí" : response?.responses?.[respuesta] == "false" ? "No" : response?.responses?.[respuesta]}</div>
                                                 </th>
                                             ))}
                                         </tr>
